@@ -20,4 +20,11 @@ class ProductRVadaptor(val allProduct:ArrayList<Product>) : RecyclerView.Adapter
         holder.binding.executePendingBindings()
     }
     inner class MyViewHolder(var binding: SingleLineLayoutBinding) : RecyclerView.ViewHolder(binding.root)
+
+    fun updateList(newList:ArrayList<Product>){
+        allProduct.clear()
+        allProduct.addAll(newList)
+        notifyDataSetChanged()
+    }
+
 }

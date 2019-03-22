@@ -21,15 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
-        /*
-        val productDetails = ProductDetailsFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(binding.mainCointainer.id,productDetails,"product_details_fragment")
-            .commit()*/
         val mainFragment = MainFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(binding.mainCointainer.id,mainFragment,"mainFragment")
         transaction.commit()
-
     }
 }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import com.ismayilov.ismayil.kotlindatabinding.adapters.ProductRVadaptor
 import com.ismayilov.ismayil.kotlindatabinding.databinding.FragmentMainBinding
 import com.ismayilov.ismayil.kotlindatabinding.models.Product
@@ -23,13 +22,12 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val lm = GridLayoutManager(activity,2)
         val allProduct = AllProduct()
-        val mAdapter = ProductRVadaptor(allProduct.tumProductlerDizisi.toCollection(ArrayList<Product>()))
-        binding.productRvList.layoutManager = lm
-        binding.productRvList.adapter = mAdapter
+        binding.products = allProduct.tumProductlerDizisi.toCollection(ArrayList<Product>())
 
         binding.refreshLayout.setOnRefreshListener {
+            val newAllProduct = AllProduct()
+            ((binding.productRvList.adapter) as ProductRVadaptor).updateList(newAllProduct.tumProductlerDizisi.toCollection(ArrayList<Product>()))
             binding.refreshLayout.isRefreshing = false
         }
 
