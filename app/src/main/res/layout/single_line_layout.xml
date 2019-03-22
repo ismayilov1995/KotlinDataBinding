@@ -5,14 +5,18 @@
 
     <data>
         <import type="android.view.View"/>
+        <import type="com.ismayilov.ismayil.kotlindatabinding.interfaces.IMainActivity"/>
         <import type="com.ismayilov.ismayil.kotlindatabinding.models.Product"/>
         <variable name="product" type="Product"/>
+        <variable name="mainActivityInterface" type="IMainActivity"/>
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/allSingleLayout">
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> mainActivityInterface.goToChoosenItem(product)}"
+            android:id="@+id/allSingleLayout">
 
         <TextView
                 android:text="@{product.title}"

@@ -19,7 +19,7 @@ object MainFragmentBindingAdapters {
         if (recyclerView.layoutManager == null)
             recyclerView.layoutManager = lm
 
-        val mAdapter = ProductRVadaptor(productList)
+        val mAdapter = ProductRVadaptor(productList,recyclerView.context)
         if (recyclerView.adapter == null)
             recyclerView.adapter = mAdapter
 
